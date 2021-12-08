@@ -27,7 +27,7 @@ const logger = require('morgan');
 const cors = require('cors');
 
 const mongoose = require( 'mongoose' );
-const mongoDBremoteURI = 'mongodb+srv://VII:MyVIID666@cluster0.nlhvu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const mongoDBremoteURI = 'mongodb+srv://VII:MyVIID666@cluster0.nlhvu.mongodb.net/AnonymousForum?retryWrites=true&w=majority'
 const mongoDBlocalURI = 'mongodb://localhost/bboard'
 const mongodbURI = (process.env.MONGODB_URI || mongoDBremoteURI)
 
@@ -86,8 +86,8 @@ app.post('/register',
     try {
       let email = req.body.email
       // generate a secret
-      secret = Math.round(Math.random()*10**7)
-
+      //secret = Math.round(Math.random()*10**7)
+      secret = 666666
       // create a JSON user document
       const userData = {
         email:email,
@@ -145,7 +145,7 @@ app.post('/addComment',
 
           // content of the post
           const bboard = req.body.bboard // name of the bboard
-          const title = req.body.title
+          // title = req.body.title
           const text = req.body.text
 
           // check that the user is who they say they are!

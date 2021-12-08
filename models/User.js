@@ -8,4 +8,4 @@ var schema = Schema( {
   validated: Boolean,
 } );
 
-module.exports = mongoose.model( 'UserCS153aBB', schema );
+module.exports = mongoose.model( 'Users', schema );
