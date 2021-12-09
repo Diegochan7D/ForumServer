@@ -92,7 +92,7 @@ app.post('/register',
       const userData = {
         email:email,
         secret:secret,
-        createdAt: new Date(),
+        createdAt: new Date().toLocaleString(),
         validated: false,
       }
       console.log('inside /register with userData=')
@@ -159,7 +159,7 @@ app.post('/addComment',
                     {
                       bboard,
                       text,
-                      createdAt:new Date(),
+                      createdAt:new Date().toLocaleString(),
                       author: user[0].id,
                     }
             console.log('post=')
