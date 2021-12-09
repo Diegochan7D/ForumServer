@@ -87,7 +87,7 @@ app.post('/register',
       let email = req.body.email
       // generate a secret
       //secret = Math.round(Math.random()*10**7)
-      secret = 666666
+      secret = req.body.secret
       // create a JSON user document
       const userData = {
         email:email,
