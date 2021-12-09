@@ -57,6 +57,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+function getDate() {
+        var date = new Date();
+
+        var year = date.getFullYear().toString();
+        var month = (date.getMonth()+1).toString();
+        var day = date.getDate().toString();
+        var hour =  date.getHours().toString();
+        var minute = date.getMinutes().toString();
+
+        return year+'-'+month+'-'+day+' '+' '+hour+':'+minute;
+    };
+
 app.get('/testemail',
   async (req,res,next) => {
     try {
@@ -88,12 +100,11 @@ app.post('/register',
       // generate a secret
       //secret = Math.round(Math.random()*10**7)
       let secret = req.body.secret
-      let time = new Date()
       // create a JSON user document
       const userData = {
         email:email,
         secret:secret,
-        createdAt: time.toLocaleString(),
+        createdAt: getDate(),
         validated: false,
       }
       console.log('inside /register with userData=')
@@ -161,7 +172,7 @@ app.post('/addComment',
                     {
                       bboard,
                       text,
-                      createdAt:time.toLocaleString(),
+                      createdAt:getDate(),
                       author: user[0].id,
                     }
             console.log('post=')
