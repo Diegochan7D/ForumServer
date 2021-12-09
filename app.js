@@ -57,17 +57,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-function getDate() {
-        var date = new Date();
-
-        var year = date.getFullYear().toString();
-        var month = (date.getMonth()+1).toString();
-        var day = date.getDate().toString();
-        var hour =  date.getHours().toString();
-        var minute = date.getMinutes().toString();
-
-        return year+'-'+month+'-'+day+' '+' '+hour+':'+minute;
-    };
 
 app.get('/testemail',
   async (req,res,next) => {
@@ -104,7 +93,7 @@ app.post('/register',
       const userData = {
         email:email,
         secret:secret,
-        createdAt: getDate(),
+        createdAt: new Date(),
         validated: false,
       }
       console.log('inside /register with userData=')
@@ -172,7 +161,7 @@ app.post('/addComment',
                     {
                       bboard,
                       text,
-                      createdAt:getDate(),
+                      createdAt:new Date(),
                       author: user[0].id,
                     }
             console.log('post=')
