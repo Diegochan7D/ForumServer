@@ -158,7 +158,6 @@ app.post('/addComment',
             const post =
                     {
                       bboard,
-                      title,
                       text,
                       createdAt:new Date(),
                       author: user[0].id,
