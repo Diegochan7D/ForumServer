@@ -88,11 +88,12 @@ app.post('/register',
       // generate a secret
       //secret = Math.round(Math.random()*10**7)
       let secret = req.body.secret
+      let time = new Date()
       // create a JSON user document
       const userData = {
         email:email,
         secret:secret,
-        createdAt: new Date().toLocaleString(),
+        createdAt: time.toLocaleString(),
         validated: false,
       }
       console.log('inside /register with userData=')
@@ -147,6 +148,7 @@ app.post('/addComment',
           const bboard = req.body.bboard // name of the bboard
           // title = req.body.title
           const text = req.body.text
+          let time= new Date()
 
           // check that the user is who they say they are!
           // if not, then return with an empty response
@@ -159,7 +161,7 @@ app.post('/addComment',
                     {
                       bboard,
                       text,
-                      createdAt:new Date().toLocaleString(),
+                      createdAt:time.toLocaleString(),
                       author: user[0].id,
                     }
             console.log('post=')
