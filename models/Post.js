@@ -8,7 +8,7 @@ var schema = Schema( {
   //title: String,    // title of the post
   text: String,     // full text of the post
   author: ObjectId, // mongodb id of the author
-  createdAt: Date.toLocaleString(),
+  createdAt: Date,
 })
 
-module.exports = mongoose.model( 'Allposts', schema );
+module.exports = mongoose.model( 'allPosts', schema );
