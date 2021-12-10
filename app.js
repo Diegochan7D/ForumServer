@@ -140,13 +140,9 @@ app.get('/users',
 app.post('/addComment',
   async (req,res,next) => {
     try {
-          // credentials of the user
           const email = req.body.email
           const secret = req.body.secret
-
-          // content of the post
           const bboard = req.body.bboard // name of the bboard
-          // title = req.body.title
           const text = req.body.text
           let time= new Date()
 
@@ -159,8 +155,8 @@ app.post('/addComment',
           } else {
             const post =
                     {
-                      bboard,
-                      text,
+                      bboard:bboard,
+                      text:text,
                       createdAt:new Date(),
                       author: user[0].id,
                     }
