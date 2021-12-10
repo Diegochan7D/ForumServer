@@ -4,11 +4,11 @@ const Schema = mongoose.Schema;
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 var schema = Schema( {
-  branch: String,   // name of the bboard
+  bboard: String,   // name of the bboard
   //title: String,    // title of the post
   text: String,     // full text of the post
   author: ObjectId, // mongodb id of the author
-  createdAt: Date,
+  createdAt: Date.toLocaleString(),
 })
 
-module.exports = mongoose.model( 'Confessions', schema );
+module.exports = mongoose.model( 'Allposts', schema );

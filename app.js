@@ -155,7 +155,7 @@ app.post('/addComment',
           } else {
             const post =
                     {
-                      bboard:bboard,
+                      bboard:bboard,                                          
                       text:text,
                       createdAt:new Date(),
                       author: user[0].id,
